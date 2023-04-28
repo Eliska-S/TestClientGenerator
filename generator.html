@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generátor testovacích klientů</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Generátor testovacích českých klientů</h1>
+      <p>
+        Toto je jednoduchá aplikace pro vygenerování testovacích dat, konkrétně dat českých klientů pro nové smlouvy 3U. V základním nastavení aplikace generuje 10 klientů ve věku od 18 do 99 let.
+      </p>
+      <form id="form">
+        <label for="minAge">Věk od:</label>
+        <input type="number" id="minAge" name="minAge" value="18" required>
+    
+        <label for="maxAge">Věk do:</label>
+        <input type="number" id="maxAge" name="maxAge" value="99"  required>
+    
+        <label for="count">Počet klientů:</label>
+        <input type="number" id="count" name="count" value="10" required>
+      </form>
+      <button id="generate-btn" onclick="generateFakePeople()">Generovat klienty</button>
+      <button id="export-btn" onclick="exportToExcel('people-table')">
+        Exportovat do Excelu
+      </button>
+    </header>
+    <table id="people-table" style="display: none;">
+      <thead>
+        <tr>
+          <th>Jméno</th>
+          <th>Příjmení</th>
+          <th>RČ</th>
+          <th>Místo narození</th>
+          <th>Telefon</th>
+          <th>E-mail</th>
+          <th>PSČ</th>
+          <th>Město</th>
+          <th>Ulice</th>
+          <th>Číslo popisné</th>
+          <th>Číslo orientační</th>
+          <th>Číslo OP</th>
+          <th>OP vydán</th>
+          <th>Platnost OP</th>
+          <th>Příspěvek</th>
+          <th>Datum podpisu</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

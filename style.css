@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    all: unset;
+}
+
+body {
+    max-width: 1700px;
+    margin: auto;
+    text-align: center;
+}
+
+header {
+    padding-top: 4em;
+}
+
+h1 {
+  margin-bottom: 0.5em;
+  font-size: 3em;
+  font-weight: 100;
+}
+
+form {
+    margin: 2em 0 3em 0;
+}
+
+form label:nth-of-type(2),
+form label:nth-of-type(3){
+    margin-left: 2em;
+    margin-right: 0.3em;
+}
+
+form input {
+    padding: 8px 10px;
+    border-radius: 5px;
+    text-align: left;
+    width: 5em;
+    border: 1px solid gray;
+}
+
+button {
+  background-color: #00308f;
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 5em;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #002d62;
+}
+
+#generate-btn {
+    margin-right: 2em;
+}
+
+#people-table {
+  margin: auto;
+  margin-bottom: 10em;
+  min-width: 1500px;
+  text-align: left;
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+  border-radius: 0.5em;
+  font-size: 0.9em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+#people-table thead tr {
+    background-color: #00308f;
+    color: #ffffff;
+    text-align: left;
+}
+
+#people-table thead tr th{
+    font-weight: lighter;
+}
+
+#people-table th,
+#people-table td {
+    padding: 10px 12px;
+    min-height: 40px;
+}
+
+#people-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#people-table tbody tr:nth-of-type(even) {
+    background-color: #f5f5f5;
+}
+
+#people-table tbody tr:nth-of-type(odd) {
+    background-color: #ffffff;
+}
+
+#people-table tbody tr:last-of-type {
+    border-bottom: 1px solid gainsboro;
+}
