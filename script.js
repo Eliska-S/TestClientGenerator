@@ -43,7 +43,8 @@ const femaleFirstNames = [
   "Monika",
   "Tereza",
   "Kristýna",
-  "Petra"
+  "Petra",
+  "Anežka",
 ];
 
 const maleSurnames = [
@@ -69,6 +70,10 @@ const maleSurnames = [
   "Pospíšil",
   "Skočil",
   "Líbal",
+  "Kroupa",
+  "Jesenský",
+  "Klučina",
+  "Beran",
 ];
 
 const femaleSurnames = [
@@ -94,6 +99,10 @@ const femaleSurnames = [
   "Zimová",
   "Králová",
   "Dubská",
+  "Kroupová",
+  "Vomáčková",
+  "Malá",
+  "Křenková",
 ];
 
 const citiesOfBirth = [
@@ -117,6 +126,16 @@ const citiesOfBirth = [
   "Kolín",
   "Příbram",
   "Frýdek Místek",
+  "Kaplice",
+  "Český Krumlov",
+  "Trutnov",
+  "Karlovy Vary",
+  "Plasy",
+  "Tachov",
+  "Kunovice",
+  "Jihlava",
+  "Beroun",
+  "Rokycany",
 ];
 
 const addresses = [
@@ -205,7 +224,7 @@ function formatDate(sex, date) {
   return `${year}${month}${day}`;
 }
 
-function randomIntFromInterval(min, max) { // min and max included
+function randomIntFromInterval(min, max) { 
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 

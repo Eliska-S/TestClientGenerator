@@ -8,6 +8,12 @@ input {
     all: unset;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 body {
     max-width: 1700px;
     margin: auto;
@@ -15,7 +21,7 @@ body {
 }
 
 header {
-    padding-top: 4em;
+    padding-top: 3em;
 }
 
 h1 {
@@ -25,25 +31,32 @@ h1 {
 }
 
 form {
-    margin: 2em 0 3em 0;
+    margin: 2em 0 2.5em 0;
+}
+
+form label {
+    margin-right: 0.3em;
 }
 
 form label:nth-of-type(2),
 form label:nth-of-type(3){
     margin-left: 2em;
-    margin-right: 0.3em;
 }
 
 form input {
-    padding: 8px 10px;
+    padding: 6px 8px;
     border-radius: 5px;
     text-align: left;
     width: 5em;
-    border: 1px solid gray;
+    border: 1px solid #BEBEBE;
+}
+
+form input:focus {
+    border: 1px solid grey;
 }
 
 button {
-  background-color: #00308f;
+  background-color: #002d62;
   color: white;
   cursor: pointer;
   padding: 8px 12px;
@@ -51,10 +64,11 @@ button {
   border: none;
   margin-bottom: 5em;
   font-size: 1em;
+  transition-duration: 0.5s;
 }
 
 button:hover {
-  background-color: #002d62;
+  background-color: #39518B;
 }
 
 #generate-btn {
@@ -64,7 +78,8 @@ button:hover {
 #people-table {
   margin: auto;
   margin-bottom: 10em;
-  min-width: 1500px;
+  min-width: 1000px;
+  max-width: fit-content;
   text-align: left;
   border-collapse: collapse;
   border-radius: 1em;
@@ -75,7 +90,7 @@ button:hover {
 }
 
 #people-table thead tr {
-    background-color: #00308f;
+    background-color: #002d62;
     color: #ffffff;
     text-align: left;
 }
