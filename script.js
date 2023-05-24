@@ -20,6 +20,8 @@ const maleFirstNames = [
   "Pavel",
   "František",
   "Jaroslav",
+  "Stanislav",
+  "Milan"
 ];
 
 const femaleFirstNames = [
@@ -74,6 +76,11 @@ const maleSurnames = [
   "Jesenský",
   "Klučina",
   "Beran",
+  "Prokeš",
+  "Burian",
+  "Spurný",
+  "Konopík",
+  "Strýček"
 ];
 
 const femaleSurnames = [
@@ -103,6 +110,10 @@ const femaleSurnames = [
   "Vomáčková",
   "Malá",
   "Křenková",
+  "Černá",
+  "Prokešová",
+  "Laštůvková",
+  "Nováčková"
 ];
 
 const citiesOfBirth = [
@@ -136,6 +147,9 @@ const citiesOfBirth = [
   "Jihlava",
   "Beroun",
   "Rokycany",
+  "Nepomuk",
+  "Polička",
+  "Kralovice"
 ];
 
 const addresses = [
@@ -158,7 +172,7 @@ const addresses = [
     SequenceNumber: 970,
     OrientationNumber: 2,
     City: "Znojmo",
-    ZipCode: 67181
+    ZipCode: 66902
   },
   {
     Street: "Erbenova",
