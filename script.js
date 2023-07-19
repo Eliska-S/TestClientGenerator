@@ -261,7 +261,6 @@ function generateBirthNumber(sex, birthDate) {
   const oldBirthNumber = birthDate.getFullYear() < 1954;
   let lastPart = generateLastPart(oldBirthNumber);
   let firstPart = formatDate(sex, birthDate);
-  console.log(firstPart)
 
   let birthNumber = firstPart + lastPart;
 
@@ -387,6 +386,10 @@ function generateFakeCzechPeople(minAge, maxAge, count) {
     const contribution = generateContribution();
     const dateReceived = getDate();
 
+    const repBirthDate = randomDate(new Date(2023 - 50, 0, 1), new Date(2023 - 25, 0, 1));
+    const repFirstName = generateFirstName(sex);
+    const repBirthNumber = generateBirthNumber(sex, repBirthDate);
+
     fakePeople.push({
       firstName: firstName,
       lastName: lastName,
@@ -405,14 +408,26 @@ function generateFakeCzechPeople(minAge, maxAge, count) {
       zipCode: zipCode,
       contribution: contribution,
       received: dateReceived,
+      repFirstName: repFirstName,
+      repBirthNumber: repBirthNumber,
     });
   }
-
+  
   const peopleTable = document.getElementById("people-table");
   peopleTable.style.display = "block";
   const tbody = peopleTable.querySelector("tbody");
   tbody.innerHTML = "";
-
+  
+  if (maxAge < 18) {
+    const newColumnHeaders = ["Jméno ZZ", "RČ ZZ"];
+    const headerRow = peopleTable.rows[0];
+    for (const columnHeader of newColumnHeaders) {
+      const newHeaderCell = document.createElement("th");
+      newHeaderCell.textContent = columnHeader;      
+      headerRow.appendChild(newHeaderCell);
+    }
+  }
+  
   fakePeople.forEach((person) => {
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -432,6 +447,7 @@ function generateFakeCzechPeople(minAge, maxAge, count) {
             <td>${person.idValid}</td>
             <td>${person.contribution}</td>
             <td>${person.received}</td>
+            ${maxAge < 18 ? `<td>${person.repFirstName}</td> <td>${person.repBirthNumber}</td>` : ''}
           `;
     tbody.appendChild(row);
   });
