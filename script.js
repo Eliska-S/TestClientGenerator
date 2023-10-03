@@ -324,33 +324,6 @@ function generateContribution() {
   return contributionAmount;
 }
 
-// Get today's date
-function getDate() {
-  const date = new Date();
-
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-
-  let currentDate = `${day}.${month}.${year}`;
-
-  return currentDate;
-}
-
-// Generate random due date
-function generateRandomDate() {
-  const startDate = new Date();
-  startDate.setFullYear(startDate.getFullYear() + 1);
-  const endDate = new Date();
-  endDate.setFullYear(endDate.getFullYear() + 6);
-  const randomDate = new Date(startDate.getTime() + Math.random() * (endDate.getTime() - startDate.getTime()));
-  const day = randomDate.getDate().toString().padStart(2, '0');
-  const month = (randomDate.getMonth() + 1).toString().padStart(2, '0');
-  const year = randomDate.getFullYear().toString();
-
-  return `${day}.${month}.${year}`;
-}
-
 function generateFakePeople() {
   const minAge = parseInt(document.getElementById("minAge").value);
   const maxAge = parseInt(document.getElementById("maxAge").value);
@@ -382,9 +355,7 @@ function generateFakeCzechPeople(minAge, maxAge, count) {
     const zipCode = address.ZipCode;
     const idNumber = generateIDNumber();
     const idIssuer = `MěÚ ${city}`;
-    const idValid = generateRandomDate();
     const contribution = generateContribution();
-    const dateReceived = getDate();
 
     const repBirthDate = randomDate(new Date(2023 - 50, 0, 1), new Date(2023 - 25, 0, 1));
     const repFirstName = generateFirstName(sex);
@@ -398,7 +369,6 @@ function generateFakeCzechPeople(minAge, maxAge, count) {
       cityOfBirth: cityOfBirth,
       idNumber: idNumber,
       idIssuer: idIssuer,
-      idValid: idValid,
       email: email,
       phoneNumber: phoneNumber,
       street: street,
@@ -407,7 +377,6 @@ function generateFakeCzechPeople(minAge, maxAge, count) {
       city: city,
       zipCode: zipCode,
       contribution: contribution,
-      received: dateReceived,
       repFirstName: repFirstName,
       repBirthNumber: repBirthNumber,
     });
@@ -417,14 +386,20 @@ function generateFakeCzechPeople(minAge, maxAge, count) {
   peopleTable.style.display = "block";
   const tbody = peopleTable.querySelector("tbody");
   tbody.innerHTML = "";
+
+  const headerRow = peopleTable.rows[0];
+  const initialColumnCount = 14;
   
   if (maxAge < 18) {
     const newColumnHeaders = ["Jméno ZZ", "RČ ZZ"];
-    const headerRow = peopleTable.rows[0];
     for (const columnHeader of newColumnHeaders) {
       const newHeaderCell = document.createElement("th");
       newHeaderCell.textContent = columnHeader;      
       headerRow.appendChild(newHeaderCell);
+    }
+  } else {
+    while (headerRow.cells.length > initialColumnCount) {
+      headerRow.deleteCell(initialColumnCount);
     }
   }
   
@@ -444,9 +419,7 @@ function generateFakeCzechPeople(minAge, maxAge, count) {
             <td>${person.orientationNumber}</td>
             <td>${person.idNumber}</td>
             <td>${person.idIssuer}</td>
-            <td>${person.idValid}</td>
             <td>${person.contribution}</td>
-            <td>${person.received}</td>
             ${maxAge < 18 ? `<td>${person.repFirstName}</td> <td>${person.repBirthNumber}</td>` : ''}
           `;
     tbody.appendChild(row);
